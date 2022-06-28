@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myskagam-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx2
+  template:
+    metadata:
+      labels:
+        app: nginx2
+
+    spec:
+      containers:
+      - name: nginx2
+        image: igalcohen/myskagam
+        ports:
+        - containerPort: 80
+
+
+    

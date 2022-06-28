@@ -1,0 +1,18 @@
+---
+- name: Create my K8S Webserver Based on Nginx Not Privlieged User
+  hosts: localhost
+
+  tasks:
+
+  - name: Pod Creation 
+    shell: kubectl apply -f ./pod.yaml
+
+  - name: Deployment of Pods
+    shell: kubectl apply -f ./deployment.yaml
+
+  - name: Create A Service
+    shell:  kubectl apply -f ./service.yaml 
+
+  
+
+
