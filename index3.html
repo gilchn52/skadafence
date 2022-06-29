@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+            <p> Current Date and Time is: <span id='date-time'></span>.</p>
+            <p> Checking to see if its the corret date</p>
+            <p id="test"></p>
+            <script>
+                let mydate = new Date();
+                var dt = new Date().toDateString();
+                var dt2 = new Date().toDateString();
+                if (dt == dt2) {
+                    greeting = "the date is corret";
+                }
+                else { 
+                    greeting = "the date is not the same!!!"
+                }
+                document.getElementById('test').innerHTML=greeting;
+                document.getElementById('date-time').innerHTML=dt;
+                
+            </script>
+        </body>
+    </head>
+</html>

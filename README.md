@@ -53,6 +53,8 @@ kubectl get svc
 and then copy the service name and paste it on this command
 minikube service [servicename] , which will cause the browser to open and display the current date and time.
 
+task 4:
+
 
 
 
