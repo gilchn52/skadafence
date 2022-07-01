@@ -71,29 +71,32 @@ what is getting returned is a date
 =======================================
 
 if we choose to check date validity :
-i used MomentJS Javascript Libary the simplfy the date validity check. 
+
 
 we use the "dv" or "datevalid" argument with a second argument named test . 
 
-afterwards the script will use the same command stored inside a varible named "support_date" 
-new Date();  **** (just like the original index.html file ) ***** 
+i've used the dateutil parser 
+This module offers a generic date/time string parser which is able to parse most known formats to represent a date and/or time.
+requests_HTML is used for enabling us using html parsing .
 
-the command will be execute two times in order to compare between both variables , to see if the result gives a valid date by adding the pharse 
-.isValid(); to one of the variables . and check it's valid date .
+the script will use the same command stored inside a varible named "var today" and "var date"
+and parse it into a string.
+then it will check if the date is valid .
+
 
 (Bonus) - check that the date is correct:
 ================================================
 
 if we choose to check the date is corret , for example if today's date is 01/07/2022 
-we use the "dc" or "datecorret" argument with a second argument named test .
-the test will be used on a filename index3.html which differes from the original HTML only by adding a few more lines:
-adding variables dt and dts , and adding if-else condition statement.
-but the original command is the same as the original in the index.html file.
-we use comparison of 2 variabels "dt" and "dt2" converts them into a [date string]  
-first it prints the current date , and then check to see if the date is correct .
+
+we use the "dc" or "datecorrect" argument with a second argument named test in order the check it .
+
+once again , i've used the requests_HTML is used for enabling us using html parsing .
+afterwards it use the parsed string from the javascript code , and convert it into datetime object , using strptime
+once that is complete we Remove the Padding to match result as python date output .
+and finally we display the output of the current date , remove the padding as well , and compares both variables 
 
 
-*  new Date() - (this command is being used on the original index.html file)
 
 
 

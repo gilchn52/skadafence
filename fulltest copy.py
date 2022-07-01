@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-
-# the argparse 
-# for this script to accept arguments 
-
 import argparse,sys,os,datetime
 from requests_html import HTML
 from dateutil.parser import parse
@@ -13,10 +9,14 @@ def wps(test):
     print ("Checking if our Webserver Nginx Based Works....")
     os.system('minikube service nginx-external')
     
-def datevalid(test):
-
+def datecorrect(test):
+# the dateutil parser 
+# This module offers a generic date/time string parser which is able to parse most known formats to represent a date and/or time.
+# the argparse 
+# for this script to accept arguments 
 # requests_HTML 
 # enabling us using html parsing .
+
 
     html = HTML(html="<a href='index.html'>")
     script = """  
@@ -37,7 +37,7 @@ def datevalid(test):
        
     
     
-def datecorrect(test):
+def datevalid(test):
     
     html = HTML(html="<a href='index.html'>")
     script = """  
