@@ -1,6 +1,6 @@
 <html>
    <head>
-      <title>MomentJS - Working Example</title>
+      <title>Show the Current Date</title>
       <script type = "text/JavaScript" src = "https://MomentJS.com/downloads/moment.js"></script>
       <style>
          div {
@@ -16,12 +16,11 @@
       <p id="check"></p>
       <div style = "font-size:25px" id = "datedisplay"></div>
       <script type = "text/JavaScript">
-        const sleep = ms=> new Promise(r => setTimeout(r, ms));
         var support_date = new Date();
         var support_date2 = new Date();
-        support_date = moment(support_date);
+        support_date = moment(support_date); 
         support_date2 = moment(support_date).isValid();
-        document.body.innerHTML=support_date + "\n" + "<br>" + "checking if the date is valid...." + support_date2;
+        document.body.innerHTML=support_date + "<br>" + "<br>" + "checking if the date is valid...." + "<br>" + support_date2;
         
     </script>
 

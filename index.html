@@ -1,13 +1,26 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <body>
-            <p> Current Date and Time is: <span id='date-time'></span>.</p>
-            <script>
-                var dt = new Date();
-                document.getElementById('date-time').innerHTML=dt;
-                
-            </script>
-        </body>
-    </head>
+   <head>
+      <title>Show the Current Date</title>
+      <script type = "text/JavaScript"></script>
+      <style>
+         div {
+            border: solid 1px #ccc;
+            padding:10px;
+            font-family: "Segoe UI",Arial,sans-serif;
+            width: 50%;
+         }
+      </style>
+   </head>
+   <body>
+
+      <p> The Current Date is: </p>
+      <p id="check"></p>
+      <div style = "font-size:25px" id = "datedisplay"></div>
+      <script type = "text/JavaScript">
+         var today = new Date()
+         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+         document.body.innerHTML = date;
+       
+    </script>
+   </body>
 </html>

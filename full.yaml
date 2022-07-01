@@ -4,15 +4,8 @@
 
   tasks:
 
-  - name: Pod Creation 
-    shell: kubectl apply -f ./pod.yaml
-
-  - name: Deployment of Pods
+  - name: Pod Creation , Deployment of Pods and Service Creation 
     shell: kubectl apply -f ./deployment.yaml
 
-  - name: Create A Service
-    shell:  kubectl apply -f ./service.yaml 
-
-  
 
 

@@ -55,6 +55,51 @@ minikube service [servicename] , which will cause the browser to open and displa
 
 task 4:
 
+that the web page is served correctly:
+=============================================
+
+i used a python script that works with arguments provided by the user himself .
+
+if we choose to check if the site working propley :
+we use the "wp" or "webpage" argument with a second argument named test .
+
+afterwars the script will execute the below command: 
+minikube service [servicename] , which runs as a process, creating a tunnel to the cluster. The command exposes the service directly to any program running on the host operating system.
+
+
+what is getting returned is a date
+=======================================
+
+if we choose to check date validity :
+i used MomentJS Javascript Libary the simplfy the date validity check. 
+
+we use the "dv" or "datevalid" argument with a second argument named test . 
+
+afterwards the script will use the same command stored inside a varible named "support_date" 
+new Date();  **** (just like the original index.html file ) ***** 
+
+the command will be execute two times in order to compare between both variables , to see if the result gives a valid date by adding the pharse 
+.isValid(); to one of the variables . and check it's valid date .
+
+(Bonus) - check that the date is correct:
+================================================
+
+if we choose to check the date is corret , for example if today's date is 01/07/2022 
+we use the "dc" or "datecorret" argument with a second argument named test .
+the test will be used on a filename index3.html which differes from the original HTML only by adding a few more lines:
+adding variables dt and dts , and adding if-else condition statement.
+but the original command is the same as the original in the index.html file.
+we use comparison of 2 variabels "dt" and "dt2" converts them into a [date string]  
+first it prints the current date , and then check to see if the date is correct .
+
+
+*  new Date() - (this command is being used on the original index.html file)
+
+
+
+
+
+
 
 
 
