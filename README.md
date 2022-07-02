@@ -52,9 +52,11 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
 
 * second we need to tag our image:
  
-  imagename = our full image name
+  in order to acomplish this , we need to supply two arguments :
 
-  tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
+  **imagename** = our full image name
+
+  **tagname** = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
 
   below is the full synthax:
   
