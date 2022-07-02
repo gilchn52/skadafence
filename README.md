@@ -58,17 +58,20 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
   tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
 
   below is the full synthax:
-
-  docker tag [imagename] [tagname]
   
+  ```sh
+  docker tag [imagename] [tagname]
+  ```
+
   ```sh
   docker tag igalcohen/myskagam igalcohen/myskagam:latest
   ```
   
 * third we push the image to our repo
 
+  ```sh
   docker push igalcohen/myskagam
-
+  ```
 
 
 ### Prerequisites
