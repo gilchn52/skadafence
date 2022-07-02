@@ -24,7 +24,7 @@ i've used minikube  .
 ## Table of Contents
 
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
+* [Prerequisites](#prerequisites)
 * [Usage and Troubleshooting](#usage)
 
 
@@ -39,22 +39,23 @@ Build the Image:
 docker build -t igalcohen/myskagam -t igalcohen/myskagam:latest .
 
 Push the image into Docker Hub Repo:
----------------------------------------
- you must first have a docker hub account on https://hub.docker.com/ and local repo that is public and not private.
+=======================================
 
- first you must create a public repository 
- i've named my repository by name of: myskagam
- and myusername is igalcohen . so my repository name is : 
+you must first have a docker hub account on https://hub.docker.com/ and local repo that is public and not private.
 
- igalcohen/myskagam
-
- afterwards we need to tag our image:
+first you must create a public repository 
  
- sh'''
+i've named my repository by name of: myskagam
+and myusername is igalcohen . so my repository name is : 
+
+igalcohen/myskagam
+
+afterwards we need to tag our image:
+ 
 imagename = our full image name
 tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
 
-'''
+
 
 below is the full synthax:
 
