@@ -34,14 +34,9 @@ i've used minikube  .
 ## Getting Started
 
 Build the Image:
-----------------------
+=============================
 
 docker build -t igalcohen/myskagam -t igalcohen/myskagam:latest .
-
-sh```
-docker build -t igalcohen/myskagam -t igalcohen/myskagam:latest .
-
-'''
 
 Push the image into Docker Hub Repo:
 ---------------------------------------
