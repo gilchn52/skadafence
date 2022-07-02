@@ -32,11 +32,12 @@ i've used minikube  .
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Build the Image:
+<h2> Build the Image: </h2>
 =============================
 
+```sh
 docker build -t igalcohen/myskagam -t igalcohen/myskagam:latest .
-
+```
 Push the image into Docker Hub Repo:
 =======================================
 
@@ -158,6 +159,8 @@ Test our Resulting Application:
 
 * keep your python environment clean and always use a 
   virtual environment .
+
+* you can use python3 fulltest.py --help , if you having problems running the program correctly
 
   Best Regards
   "The Treker"
