@@ -60,10 +60,11 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
   below is the full synthax:
 
   docker tag [imagename] [tagname]
-
+  
+  ```sh
   docker tag igalcohen/myskagam igalcohen/myskagam:latest
-
-
+  ```
+  
 * third we push the image to our repo
 
   docker push igalcohen/myskagam
