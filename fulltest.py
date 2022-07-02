@@ -1,9 +1,17 @@
 #!/usr/bin/env python
+# Created by the treker
+# Date 29.6.22
+# Version : 0.0.55
+# Objective: test our nginx unprivleged container with date validity/propriety/webpage output
+
+
+
+
+import argparse,sys,os,datetime
 
 # the argparse 
 # for this script to accept arguments 
 
-import argparse,sys,os,datetime
 from requests_html import HTML
 from dateutil.parser import parse
 from datetime import date
@@ -15,8 +23,10 @@ def wps(test):
     
 def datevalid(test):
 
-# requests_HTML 
-# enabling us using html parsing .
+# requests_HTML - enabling us using html parsing . 
+# dateutil.parser  - This module offers a generic date/time string parser which is able to parse most known formats to represent a date and/or time.
+
+
 
     html = HTML(html="<a href='index.html'>")
     script = """  
@@ -77,13 +87,17 @@ def datecorrect(test):
 # used to print out help messages if no arugments are supplied on the command line .  
 # the user must add 2 arguments , the first one of the below mentioned argument (wp,dv,dc) and the second is the word test.  
 
+
+
+
 class MyParser(argparse.ArgumentParser):
     def error(self, message):
         sys.stderr.write('error: %s\n' %message)
         self.print_help()
         sys.exit(2)
 parser = MyParser()
-parser = argparse.ArgumentParser(description='my process.')
+parser = argparse.ArgumentParser(description='you must add the word test as a second argument in addition to default arguments wp/dc/dv.',
+                                 epilog='For Example: python3 fulltest.py -dv test')
 parser.add_argument("-wp", "--webpage", action="store", help="webpage test", type=wps)
 parser.add_argument("-dv", "--datevalid", action="store", help="date validaity test", type=datevalid)
 parser.add_argument("-dc", "--datecorret", action="store", help="date corret checkup", type=datecorrect)

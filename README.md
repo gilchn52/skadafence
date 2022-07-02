@@ -1,114 +1,121 @@
 
+the below program Create on your K8S Cluster an Nginx Unprivileged Container
 
-the index.html:
+to build the application you will need a fully functional K8S-Cluster. 
 
-Javascript date object and HTML span element can be used to display the current date and time.
-by default Javascript use the browser's timezone to display time and date.
-
-Date object is created with the Date() constructor . Then using innerHTML propety , the content of HTML span element
-is set with current date and time.
-Unique id of span tag is used by getElementById() method to display the current date and time.
-
-the Nginx Container:
-in order to run nginx with non root user we need to change the permission for the below directories&files
-/var/cache/nginx
-/var/log/nginx
-/etc/nginx/nginx.conf
-
-then we create a signal .
-nginx can be controlled with signlas.
-the process id of the master process for nginx is written to the file /var/run/nginx.pid  by default 
-which controls the service.
-
-and take ownership of him as well.
-
-to start the service as nginx user directly. we need to stop it from running as a daemon in the nginx.conf
-and we can achieve by the adding the phrase "daemon off" to the nginx.conf file
-
-at the end , we start the process nginx.
+Instructions:
 
 
-task 2 :
-Upload my docker image to the my repo
-first i create a custom repo on my dockerhub account called
-"igalcohen/myskagam"
-second:
-tag my image:
-docker tag myweb:latest igalcohen/myskagam
-third:
+to build the image:
+=====================================================================
+docker build -t igalcohen/myskagam -t igalcohen/myskagam:latest .
+
+
+to push the image into docker hub repo:
+========================================
+
+you must first have a docker hub account on https://hub.docker.com/ and local repo that is public and not private.
+
+
+first you must create a public repository 
+i've named my repository by name of: 
+
+myskagam
+
+and my username is igalcohen
+
+so my repository name is :
+
+igalcohen/myskagam
+
+afterwards we need to tag our image:
+
+imagename = our full image name
+tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
+
+below is the sythax:
+
+docker tag [imagename] [tagname]
+docker tag igalcohen/myskagam igalcohen/myskagam:latest
+
+
+finally we push the image to our repo
 docker push igalcohen/myskagam
-fourth:
-u can pull the image with the below command:
-docker pull igalcohen/myskagam:latest
-
-task 3:
-i used minikube for testing .
-i've created three yaml files as configurations (Pod,Deployment and Service)
-the POD manifest yaml file , creates a pod and pull the docker image i've uploaded to the the dockerhub repo into the host
-afterwards the deployment manifest yaml file , deploys the application on 2 pods , one as main ,and the other as the replica.
-the container port set to listen on port 80.
-and the final service manifest yaml file , creates a k8s service and expose the container to the Node IP Address
-we can check that it works by writeing the below commands:
-kubectl get svc
-and then copy the service name and paste it on this command
-minikube service [servicename] , which will cause the browser to open and display the current date and time.
-
-task 4:
-
-that the web page is served correctly:
-=============================================
-
-i used a python script that works with arguments provided by the user himself .
-
-if we choose to check if the site working propley :
-we use the "wp" or "webpage" argument with a second argument named test .
-
-afterwars the script will execute the below command: 
-minikube service [servicename] , which runs as a process, creating a tunnel to the cluster. The command exposes the service directly to any program running on the host operating system.
 
 
-what is getting returned is a date
-=======================================
-
-if we choose to check date validity :
-
-
-we use the "dv" or "datevalid" argument with a second argument named test . 
-
-i've used the dateutil parser 
-This module offers a generic date/time string parser which is able to parse most known formats to represent a date and/or time.
-requests_HTML is used for enabling us using html parsing .
-
-the script will use the same command stored inside a varible named "var today" and "var date"
-and parse it into a string.
-then it will check if the date is valid .
-
-
-(Bonus) - check that the date is correct:
+to deploy the image:
 ================================================
 
-if we choose to check the date is corret , for example if today's date is 01/07/2022 
-
-we use the "dc" or "datecorrect" argument with a second argument named test in order the check it .
-
-once again , i've used the requests_HTML is used for enabling us using html parsing .
-afterwards it use the parsed string from the javascript code , and convert it into datetime object , using strptime
-once that is complete we Remove the Padding to match result as python date output .
-and finally we display the output of the current date , remove the padding as well , and compares both variables 
+login to your K8S-Cluster Machine (on Premiss K8S Cluster / localhost minikube )
+run the below command
 
 
+kubectl apply -f ./deployment.yaml
+
+wait about 60 seconds until the container will be created successfully
+2 pods should be running :
+
+one as main container and the other as replica 
+
+you can check and see that our nginx server is operating normally,
+by executing the below command:
+
+minikube service nginx-external
+
+your default browser should open and display the current date .
 
 
+to test that our resulting application:
+==================================================
+we need python3 in order to use our python script file.
+fulltest.py.
+
+to keep our original environment clean let's create a virtual environment on python.
+
+you can achieve that by executing the below command:
+python3 -m venv [path_to_you_our_application_directory_[virtual_environment_name]]
+for example:
+
+python3 -m venv ~/Projects/myenv
+
+and afterwards install all the needed modules by executing the below command
+
+pip3 install -r req.txt
+
+to test our application:
+====================
+testing our webpage:
+====================
+python3 fulltest.py -wp
+
+the browser should open and display the current day 
+
+==========================
+testing the date validity:
+==========================
+
+python3 fulltest.py -dv test
+
+the program will check and see if the date is valid.
+
+==============================
+testing if the date is corret :
+==============================
+
+python3 fulltest.py -dc test
+
+the program will check and see if the date is correct
+
+notes:
+=============================================
+* i've tested the the below on minikube 
+* you can name you repo any name you wish , just make sure to apply the changes inside the    
+  deployment.yaml file
+
+* i personally recommends using vscode for testing.
+
+* keep you python environment clean and always use a virtual environment .
 
 
-
-
-
-
-
-
-
-
-
-
-
+Best regards
+"the treker"
