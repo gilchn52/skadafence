@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="git@gitlab.com:gilchn52/k8s-hyperv-deploy.git">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="160" height="160">
   </a>
 
   <h3 align="center">Deploy Nginx Unvprileged Container On K8S Cluster</h3>
