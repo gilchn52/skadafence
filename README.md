@@ -128,21 +128,21 @@ Test our Resulting Application:
    python3 fulltest.py -wp test
    ```
 
-   the browser should open and display the current day 
+    the browser should open and display the current day 
 
-2. testing the date validity:
+ 2. testing the date validity:
    
-    ```sh
-    python3 fulltest.py -dv test
+  ```sh
+  python3 fulltest.py -dv test
     ```
-    the program will check and see if the date is valid.
+  the program will check and see if the date is valid.
 
-3. testing if the date is corret :
+ 3. testing if the date is correct :
 
-   ```sh
-   python3 fulltest.py -dc test
-   ```
-   the program will check and see if the date is correct
+  ```sh
+  python3 fulltest.py -dc test
+  ```
+  the program will check and see if the date is correct
 
 
 
@@ -153,7 +153,7 @@ Test our Resulting Application:
 * i've tested the the below on minikube 
 * you can name your repo any name you wish , just make sure to apply the changes inside the    
   deployment.yaml file
-
+* Tested on Python 3.9
 * i personally recommends using vscode for testing.
 
 * keep your python environment clean and always use a 
