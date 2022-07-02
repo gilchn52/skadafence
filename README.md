@@ -44,8 +44,8 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
 
 * first you must create a public repository 
  
-  i've named my repository by name of: myskagam
-  and myusername is igalcohen . so my repository name is : 
+  i've named my repository by name of: #myskagam
+  and myusername is #igalcohen . so my repository name is : 
 
   igalcohen/myskagam
 
@@ -149,12 +149,12 @@ Test our Resulting Application:
 ## Notes
 
 * i've tested the the below on minikube 
-* you can name you repo any name you wish , just make sure to apply the changes inside the    
+* you can name your repo any name you wish , just make sure to apply the changes inside the    
   deployment.yaml file
 
 * i personally recommends using vscode for testing.
 
-* keep you python environment clean and always use a 
+* keep your python environment clean and always use a 
   virtual environment .
 
   Best Regards
