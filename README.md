@@ -53,6 +53,7 @@ igalcohen/myskagam
 afterwards we need to tag our image:
  
 imagename = our full image name
+
 tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
 
 
