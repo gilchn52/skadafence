@@ -32,7 +32,7 @@ i've used minikube  .
 <!-- GETTING STARTED -->
 ## Getting Started
 
-<h4> Build the Image: </h4>
+Build the Image: 
 =============================
 
 ```sh
