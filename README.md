@@ -24,8 +24,7 @@ i've used minikube  .
 ## Table of Contents
 
 * [Getting Started](#getting-started)
-* [Prerequisites](#prerequisites)
-* [Usage and Troubleshooting](#usage)
+* [Notes](#Notes)
 
 
 
@@ -73,105 +72,94 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
   docker push igalcohen/myskagam
   ```
 
+Deploy the image:
+=================
 
-### Prerequisites
-
-
-
-
-* Minimum Requirments for running this program
-* i5 with 4 cores
-* 8GB Ram
-* SSD Storage For Faster Deployment
-* Vagrant Application Installed  - you can download at : https://www.vagrantup.com/downloads
-* OS:Windows 10 , With HyperV Feature Installed
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage and Troubleshooting
-
-first look at the vagrantfile and see if it's meets your needs. (make neccsery changes) .
-
-
-** THIS SCRIPT WON'T PROMPT FOR USERNAME AND PASSWORD FOR THE SMB SHARE **
-
-(HOST Username and Password must be mentioned in order for that to happen.)
-see line: 11 - 13
+login to your K8S-Cluster Machine (on Premiss K8S Cluster / localhost minikube )
+run the below command
 
 ```sh
-
-config.vm.synced_folder ".", "/vagrant", type: "smb",
-smb_username: '#########',
-smb_password: '#########'
+kubectl apply -f ./deployment.yaml
 ```
+wait about 60 seconds until the container will be created successfully
+2 pods should be running :
+
+one as main container and the other as replica 
+you can check and see that our nginx server is operating normally,by executing the below command:
 
 ```sh
-
-this is a must if we want to export the join command creating the token (see line 69 on master.sh script)
-to the localhost and then copy it the slave node( and i know for security reasons this is not idle 
-, but you can use environment variables as i mentioned above , see below link ):
-
-
-you can use Vagrant ENV Plugin For environment variables
-can be found on https://github.com/gosuri/vagrant-env
+minikube service nginx-external
 ```
 
+your default browser should open and display the current date .
 
-and  without pressing any more commands besides the first and only command to run this program : 
-just write: 
-```sh
+Test our Resulting Application:
+===============================
+* we need python3 in order to use our python script file.
+ fulltest.py.
 
-vagrant up 
-```
+* to keep our original environment clean let's create a 
+  virtual environment on python.
 
-and u're on the way.
+  you can achieve that by executing the below command:
 
-* Troubleshooting Advices:
+  ```sh
+  python3 -m venv [path_to_you_our_application_directory_[virtual_environment_name]]
+  ```
 
-   if some reason vagrant won't use the hyperv as provider run this command instead of vagrant up:
-```sh
+  For Example:
+  ```sh
+  python3 -m venv ~/Projects/myenv
+  ```
 
-vagrant up --provider=hyperv
-```
+  and afterwards install all the needed modules by executing the below command
 
-1. vagrant is stuck while initializing the k8s master node 
+  ```sh
+  pip3 install -r req.txt
+  ```
 
-   in some cases k8s master won't start normally , the solution is very simple
-   just do a reset , after both of the vm's are up
+ * to test our application with fullacess script:
 
-   below are the commands to do so :
-```sh
-reset K8S with kubeadm
-sudo kubeadm reset -f
-sudo rm -r /etc/cni/net.d
+ 1. testing the webpage :
+   
+   ```sh
+   python3 fulltest.py -wp test
+   ```
 
-reset ip tables
-sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
-sudo systemctl restart kubelet
-sudo systemctl restart containerd
-rm /home/vagrant/.kube/config
+   the browser should open and display the current day 
 
-```
+2. testing the date validity:
+   
+    ```sh
+    python3 fulltest.py -dv test
+    ```
+    the program will check and see if the date is valid.
 
-   and afterwards you can kube init the cluster normally with commands mentioned on the first script master.sh . (See line 89) 
+3. testing if the date is corret :
 
-2. the vagrant will deploy sucessfully but the k8s master node status is not ready.
+   ```sh
+   python3 fulltest.py -dc test
+   ```
+   the program will check and see if the date is correct
 
-   sometimes the script won't create the .kube directory on the user home folder .
-   so what u need to do is just :
 
-```sh 
-vagrant ssh master
-mkdir -p /home/vagrant/.kube
-sudo cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
-sudo chown $(id -u):$(id -g) /home/vagrant/.kube/config
 
-and then check the k8s-cluster status
-with the command 
 
-kubectl get cluster-info
-```
+<!-- Notes -->
+## Notes
+
+* i've tested the the below on minikube 
+* you can name you repo any name you wish , just make sure to apply the changes inside the    
+  deployment.yaml file
+
+* i personally recommends using vscode for testing.
+
+* keep you python environment clean and always use a 
+  virtual environment .
+
+  Best Regards
+  "The Treker"
+
 
 
 
