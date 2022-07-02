@@ -160,7 +160,7 @@ Test our Resulting Application:
 * i've tested the the below on minikube 
 * you can name your repo any name you wish , just make sure to apply the changes inside the    
   deployment.yaml file
-* Tested on Python 3.9
+* Tested on Python 3.9 on a Ubuntu 20.04 OS Platform.
 * i personally recommends using vscode for testing.
 
 * keep your python environment clean and always use a 
