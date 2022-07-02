@@ -2,6 +2,8 @@
 the below program Create on your K8S Cluster an Nginx Unprivileged Container
 
 to build the application you will need a fully functional K8S-Cluster. 
+i've used minikube 
+
 
 Instructions:
 
