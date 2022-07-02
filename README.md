@@ -115,7 +115,13 @@ Test our Resulting Application:
   python3 -m venv ~/Projects/myenv
   ```
 
-  and afterwards install all the needed modules by executing the below command
+  and afterwards we activate it by this command:
+
+  ```sh
+  source /myenv/bin/activate
+  ```
+
+  next, install all the needed modules by executing the below command
 
   ```sh
   pip3 install -r req.txt
