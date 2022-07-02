@@ -123,7 +123,7 @@ Test our Resulting Application:
 
  * to test our application with fullacess script:
 
- 1. testing the webpage :
+ **1. testing the webpage :**
    
 ```sh
    python3 fulltest.py -wp test
@@ -131,14 +131,14 @@ Test our Resulting Application:
 
     the browser should open and display the current day 
 
- 2. testing the date validity:
+ **2. testing the date validity:**
    
 ```sh
   python3 fulltest.py -dv test
   ```
   the program will check and see if the date is valid.
 
- 3. testing if the date is correct :
+ **3. testing if the date is correct :**
 
 ```sh
   python3 fulltest.py -dc test
