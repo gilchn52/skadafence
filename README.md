@@ -124,24 +124,24 @@ Test our Resulting Application:
 
  1. testing the webpage :
    
-   ```sh
+```sh
    python3 fulltest.py -wp test
-   ```
+```
 
     the browser should open and display the current day 
 
  2. testing the date validity:
    
-  ```sh
+```sh
   python3 fulltest.py -dv test
-    ```
+  ```
   the program will check and see if the date is valid.
 
  3. testing if the date is correct :
 
-  ```sh
+```sh
   python3 fulltest.py -dc test
-  ```
+```
   the program will check and see if the date is correct
 
 
