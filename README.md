@@ -44,10 +44,10 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
 
 * first you must create a public repository 
  
-  i've named my repository by name of: #myskagam
-  and myusername is #igalcohen . so my repository name is : 
+  i've named my repository by name of: **myskagam**
+  and myusername is **igalcohen** . so my repository name is : 
 
-  igalcohen/myskagam
+  **igalcohen/myskagam**
 
 
 * second we need to tag our image:
