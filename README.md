@@ -43,33 +43,30 @@ Push the image into Docker Hub Repo:
 
 you must first have a docker hub account on https://hub.docker.com/ and local repo that is public and not private.
 
-first you must create a public repository 
+* first you must create a public repository 
  
-i've named my repository by name of: myskagam
-and myusername is igalcohen . so my repository name is : 
+  i've named my repository by name of: myskagam
+  and myusername is igalcohen . so my repository name is : 
 
-igalcohen/myskagam
+  igalcohen/myskagam
 
-afterwards we need to tag our image:
+
+* second we need to tag our image:
  
-imagename = our full image name
+  imagename = our full image name
 
-tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
+  tagname = is combined from two values our full image name [igalcohen/myskagam] and our custom tag [latest]
+
+  below is the full synthax:
+
+  docker tag [imagename] [tagname]
+
+  docker tag igalcohen/myskagam igalcohen/myskagam:latest
 
 
+* third we push the image to our repo
 
-below is the full synthax:
-
-sh'''
-docker tag [imagename] [tagname]
-docker tag igalcohen/myskagam igalcohen/myskagam:latest
-'''
-
-finally we push the image to our repo
-
-sh'''
-docker push igalcohen/myskagam
-'''
+  docker push igalcohen/myskagam
 
 
 
