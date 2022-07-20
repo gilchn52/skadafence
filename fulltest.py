@@ -78,7 +78,7 @@ def datecorrect(test):
     else:
           return print("date is not corret")
       
-# the class erorr used to display error once the user , enters illegul input, such as -blahblahblah , it captures the argument input 
+# the class error used to display error once the user , enters illegul input, such as -blahblahblah , it captures the argument input 
 # and also prints the help used enabled by default of the argument parser itself
 
 # if len(sys.argv)==1:

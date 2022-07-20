@@ -1,22 +1,7 @@
-apiVersion: v1
-kind: Pod
-
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-    tier: frontend
-spec:
-  containers:
-  - name: nginx
-    image: igalcohen/myskagam
-    
----
-
-apiVersion: apps/v1
-kind: Deployment
 metadata:
   name: myskagam-deployment
+  labels:
+    apps: nginx2
 spec:
   replicas: 1
   selector:
@@ -26,38 +11,26 @@ spec:
     metadata:
       labels:
         app: nginx2
-
     spec:
       containers:
-      - name: nginx2
-        image: igalcohen/myskagam
+      - name: nginx2-main
+        image: igalcohen/myskagam:1.04
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: nginx-external
 spec:
- # Expose the service on a static port on each node
- # So that we can access the service outside the cluster
-
-  type: NodePort
- 
- # When the node recives a request on the static port (30163)
- # "select pods with the label" app to set 'nginx'
- # and forward the request to one of them.
-
   selector:
-    app: nginx
+    app: nginx2
+  type: LoadBalancer
   ports:
-  # three types of ports for a service
-  # nodeport - a static port assigned on node
-  # port - the port exposed internally in the cluster
-  # targetport - the contianer port to send requests to 
-    - nodePort: 30163
+    - protocol: TCP
       port: 8082
-      targetPort: 80
+      targetPort: 8080
+      nodePort: 30163
 
- 
+
