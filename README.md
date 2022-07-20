@@ -78,7 +78,7 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
 Deploy the image:
 =================
 
-login to your K8S-Cluster Machine (on Premiss K8S Cluster / localhost minikube )
+login to your K8S-Cluster Machine (on Premiss K8S Cluster / localhost minikube -- i've used minikube)
 run the below command
 
 ```sh
@@ -167,7 +167,9 @@ Test our Resulting Application:
   virtual environment .
 
 * you can use python3 fulltest.py --help , if you having problems running the program correctly
-
+***** update 20.7.22 ******
+* i've changed the deployment file port to be anumber above >1024 , that's why the deplpoyment was a faiulre cause a regular user cannot bind ports lower 
+  than 1024
   Best Regards
   "The Treker"
 
