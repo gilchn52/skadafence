@@ -1,0 +1,39 @@
+variables:
+    IMAGE_NAME: igalcohen/myskagam
+    IMAGE_TAG: igalcohen/myskagam:1.04
+stages:
+    - build
+    - deploy
+    - test
+
+
+build_image:
+    stage: build
+    image: docker:20.10.16
+    services:
+      - docker:20.10.16-dind
+    variables:
+      DOCKER_TLS_CERTDIR: "/certs"
+    before_script:
+      - docker login -u $REGISTERY_USER -p $REGISTERY_PASSWORD 
+deploy:
+    stage: deploy
+    image:
+        name: bitnami/kubectl:latest
+        entrypoint: ['']
+    script:
+        - kubectl config get-contexts
+        - kubectl config use-context gilchn52/FinalsProject:myk8sagent
+        - kubectl get pods
+        - kubectl apply -f deployment.yaml
+run_tests:
+    stage: test
+    image: python:3.8-alpine
+    script:
+        - python3 fulltest.py -wp test
+        - python3 fulltest.py -dv test
+        - python3 fulltest.py -dc test 
+
+
+
+
