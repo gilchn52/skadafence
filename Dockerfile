@@ -1,8 +1,8 @@
 FROM nginx:1.22-alpine
-
 COPY index.html /usr/share/nginx/html
 RUN apk add bash
 COPY  ./changeme.sh /home
+RUN chmod 777 /home/changeme.sh
 RUN bash -c /home/changeme.sh
 RUN     chown -R nginx:nginx /var/cache/nginx && \
         chown -R nginx:nginx /var/log/nginx && \

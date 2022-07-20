@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx2-main
-        image: igalcohen/myskagam:1.04
+        image: igalcohen/myskagam:latest
         ports:
         - containerPort: 8080
 

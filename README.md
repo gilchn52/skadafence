@@ -112,13 +112,13 @@ Test our Resulting Application:
 
   For Example:
   ```sh
-  python3 -m venv ~/Projects/myenv
+  python3 -m venv myenv
   ```
 
   and afterwards we activate it by this command:
 
   ```sh
-  source /myenv/bin/activate
+  source myenv/bin/activate
   ```
 
   next, install all the needed modules by executing the below command
@@ -167,9 +167,11 @@ Test our Resulting Application:
   virtual environment .
 
 * you can use python3 fulltest.py --help , if you having problems running the program correctly
-***** update 20.7.22 ******
+*                                            ***** update 20.7.22 ******
 * i've changed the deployment file port to be anumber above >1024 , that's why the deplpoyment was a faiulre cause a regular user cannot bind ports lower 
-  than 1024
+  than 1024.
+
+
   Best Regards
   "The Treker"
 
