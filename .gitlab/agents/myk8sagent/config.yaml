@@ -1,0 +1,5 @@
+ci_access:
+  projects:
+    - id: path/to/project
+  groups:
+    - id: path/to/group/subgroup
