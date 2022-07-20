@@ -19,7 +19,9 @@ from datetime import datetime
 
 def wps(test):
     print ("Checking if our Webserver Nginx Based Works....")
-    os.system('minikube service nginx-external')
+    k8sip = os.system("bash -c "kubectl cluster-info | grep Kubernetes | awk '{print $7}' | sed 's/https:\?:\/\///' | awk -F ':' '{print $1}'
+    os.system("bash -c "curl $k8sip:30163" ")
+#    os.system('minikube service nginx-external')
     
 def datevalid(test):
 
