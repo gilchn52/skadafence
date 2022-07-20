@@ -1,11 +1,8 @@
-variables:
-    IMAGE_NAME: igalcohen/myskagam
-    IMAGE_TAG: igalcohen/myskagam:1.04
+
 stages:
     - build
     - deploy
     - test
-
 
 build_image:
     stage: build
@@ -15,7 +12,10 @@ build_image:
     variables:
       DOCKER_TLS_CERTDIR: "/certs"
     before_script:
-      - docker login -u $REGISTERY_USER -p $REGISTERY_PASSWORD 
+      - docker login -u $REGISTERY_USER -p $REGISTERY_PASSWORD
+    script:
+        - docker build -t igalcohen/myskagam -t igalcohen/myskagam:1.05 .
+        - docker push igalcohen/myskagam:1.05 
 deploy:
     stage: deploy
     image:
