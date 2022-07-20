@@ -1,3 +1,0 @@
-i've change the ports that nginx start
-cause normal user cannot bind ports that are >1024
-and remove the extra lines that are not needed
