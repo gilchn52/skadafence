@@ -78,7 +78,7 @@ you must first have a docker hub account on https://hub.docker.com/ and local re
 Deploy the image:
 =================
 
-login to your K8S-Cluster Machine (on Premiss K8S Cluster / localhost minikube -- i've used minikube)
+login to your K8S-Cluster Machine (on Premiss K8S Cluster/localhost minikube -- i've used minikube and so does the tests apply to same platfrom a.k.a minikube.)
 run the below command
 
 ```sh
@@ -171,6 +171,7 @@ Test our Resulting Application:
 * i've changed the deployment file port to be anumber above >1024 , that's why the deplpoyment was a faiulre cause a regular user cannot bind ports lower 
   than 1024.
 
+* the test works only on minikube platform.
 
   Best Regards
   "The Treker"
